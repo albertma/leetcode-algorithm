@@ -26,7 +26,7 @@ public class WordBreak {
 	 * 我们需要枚举s1 = s[0..j-1]组成的字符串和 s2 = s[j..i-1]组成的字符串是否合法，
 	 * 如果两个字符串均合法，那么按照定义s1和s2拼成的字符串也同样合法。
 	 * dp[i]用于保存前i个字符组成的字符串s[0..i-1]是否能被空格拆分成若干字典中出现的单词。
-	 * dp[i] && check(s[j..i-1])
+	 * dp[j] && check(s[j..i-1])
 	 * check(s[j..i-1]) 表示子串s[j..i-1]是否出现在字典中。
 	 *  
 	 * @param s
@@ -44,7 +44,7 @@ public class WordBreak {
 			//[0...j-1 |j..i]
 			for(int j = 0; j < i; j++) {
 				String subStr = s.substring(j,i);
-				//dp[i]分解成S1和S2，
+				//dp[i]对应的S分解成S1和S2，
 				//dp[j]是s1是否为单词组成，即为s[0,j-1], 
 				//s2为subStr即为s[j,i-1], i是为string的size
 				if(dp[j]&&dictionary.contains(subStr)) {
