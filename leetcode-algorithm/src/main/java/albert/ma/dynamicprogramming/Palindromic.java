@@ -22,6 +22,11 @@ public class Palindromic {
         //[f(2,0), f(2,1), f(2,2),..,f(2,n-2), f(2,n-1)]
         //[f(..,0), f(..,1), f(..,2),..,f(..,n-2), f(..,n-1)]
         //[f(n-1,0),f(n-1,1), f(n-1,2),..,f(n-1,n-2), f(n-1,n-1)]
+        //It is like triangle, enumeration is from bottom right to top.
+        //****
+        //-***
+        //--**
+        //---*
         int[][] fn = new int[len][len];
         for(int i = len -1; i >= 0; i--) {
             fn[i][i] = 1;
@@ -35,5 +40,7 @@ public class Palindromic {
         }
         return fn[0][len-1];
      }
+    
+    
     
 }
