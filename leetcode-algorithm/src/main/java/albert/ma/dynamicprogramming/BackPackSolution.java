@@ -96,4 +96,50 @@ public class BackPackSolution {
         }
         return dp[target];
     }
+    
+    /**
+     * You are given an array of binary strings strs and two integers m and n.
+     * Return the size of the largest subset of strs such that there are at most m 0's and n 1's in the subset.
+     * A set x is a subset of a set y if all elements of x are also elements of y.
+     * dp[i][j][k] 表示前i个字符串中， 使用j个0和k个1的情况下最多可以得到的字符串数量。假设数组str的长度的l，则最终答案为dp[l][m][n]
+     * 
+     * 
+     * @param strs
+     * @param m
+     * @param n
+     * @return
+     */
+    public int findMaxForm(String[] strs, int m, int n) {
+        
+        return 0;
+
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
