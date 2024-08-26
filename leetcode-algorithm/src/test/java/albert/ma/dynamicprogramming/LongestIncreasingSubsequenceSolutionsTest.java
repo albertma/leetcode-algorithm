@@ -5,12 +5,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-public class IntegerArraySolutionsTest {
+public class LongestIncreasingSubsequenceSolutionsTest {
     
-    IntegerArraySolutions s;
+    LongestIncreasingSubsequence s;
     @Before
     public void setup(){    
-        s = new IntegerArraySolutions();
+        s = new LongestIncreasingSubsequence();
     }
     
     @Test
@@ -29,4 +29,11 @@ public class IntegerArraySolutionsTest {
         assertEquals(1, len);
     }
 
+    @Test
+    public void findNumberOfLIS() {
+        int[] nums = {1,3,5,4,7};
+        int counter = s.findNumberOfLIS(nums);
+        System.out.println("counter:"+ counter);
+    }
+    
 }
