@@ -36,6 +36,7 @@ public class DijkstraAlgorithm {
                 }else if(op.equals("sqrt")) {
                     v = Math.sqrt(v);
                 }
+                //将结果push到栈中
                 vals.push(v);
                 
                 

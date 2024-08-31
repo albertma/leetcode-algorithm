@@ -1,6 +1,9 @@
 package albert.ma.dynamicprogramming;
 
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LongestIncreasingSubsequence {
     
@@ -86,6 +89,82 @@ public class LongestIncreasingSubsequence {
         }
         return ans;
         
+    }
+    
+    /**
+     * You are given an array of n pairs pairs where pairs[i] = [lefti, righti] and lefti < righti.
+     * A pair p2 = [c, d] follows a pair p1 = [a, b] if b < c. A chain of pairs can be formed in this fashion.
+     * Return the length longest chain which can be formed.
+     * 
+     * @param pairs
+     * @return
+     */
+    public int findLongestChain(int [][] pairs) {
+        Arrays.sort(pairs, new Comparator<int[]>() {
+
+
+            @Override
+            public int compare(int[] o1, int[] o2) {
+               
+                return Integer.compare(o1[0], o2[0]);
+            }
+        });
+     
+       
+       int n = pairs.length;
+       int[] dp = new int[n];
+       int maxCount = 0;
+       for(int i = 0; i < n; i++) {
+           dp[i] = 1;
+          
+           for(int j = 0; j < i; j++) {
+               if(pairs[i][0] > pairs[j][1] ) {
+                   dp[i] =  Math.max(dp[i], dp[j]+1);
+               }
+           }
+           if(maxCount < dp[i]) {
+               maxCount = dp[i];
+           }
+           
+       }
+       return maxCount;
+    }
+    
+    /**
+     * dp[i] = dp[j] + 1 if arr[i]-difference =  arr[j]
+     * @param arr
+     * @param difference
+     * @return
+     */
+    public int longestSubsequence(int[] arr, int difference) {
+        
+        int maxLen = 1;
+        Map<Integer, Integer> dp = new HashMap<Integer, Integer>();
+        for(int value: arr) {
+            
+            dp.put(value, dp.getOrDefault(value-difference, 0)+1);
+            
+            maxLen = Math.max(maxLen, dp.get(value));
+        }
+        return maxLen;
+    }
+    
+    /**
+     * Given an array nums of integers, return the length of the longest arithmetic subsequence in nums.
+     * 
+     * @param nums
+     * @return
+     */
+    public int longestArithSeqLength(int[] nums) {
+        
+        Map<Integer, HashMap<Integer, Integer>> dp  = new HashMap<Integer, HashMap<Integer, Integer>>();
+        Integer pre = Integer.MAX_VALUE;
+        for(int value: nums) {
+            if(pre != Integer.MAX_VALUE) {
+                
+            }
+        }
+        return 0;
     }
 }
 
